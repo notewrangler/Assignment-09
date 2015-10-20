@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	setInterval(displayTime, 1000);
+	displayTime();
 });
 
 
@@ -17,8 +18,9 @@ function formatHour(t) {
 	var h = t.getHours();
 	 	if (h < 13) {
 			hap = h;
-		}else { var hap = h - 12;
+		}else { hap = (h - 12);
 		}
+
 	if (hap < 10 && hap > 0) {
 		hd = "0" + hap.toString();
 	}else if (hap === 0){
@@ -63,5 +65,3 @@ function formatAP(t) {
 	console.log(ap);
 	return ap;
 }
-
-displayTime();
