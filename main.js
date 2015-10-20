@@ -3,10 +3,6 @@ $(document).ready(function(){
 });
 
 
-
-
-
-
 function displayTime() {
 	var rawTime = new Date;
 	$('#hours').html(formatHour(rawTime));
@@ -20,13 +16,15 @@ function formatHour(t) {
 	var hd = "";
 	var h = t.getHours();
 	 	if (h < 13) {
-			var hap = h;
+			hap = h;
 		}else { var hap = h - 12;
 		}
-	if (hap < 10) {
-		var hd = "0" + hap.toString();
+	if (hap < 10 && hap > 0) {
+		hd = "0" + hap.toString();
+	}else if (hap === 0){
+		hd = "12";
 	}else {
-		var hd = hap.toString();
+		hd = hap.toString();
 	}
 	return hd;
 }
